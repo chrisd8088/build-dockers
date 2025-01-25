@@ -12,9 +12,9 @@ ENV GOROOT=/usr/local/go
 ENV GOTOOLCHAIN=local
 
 RUN cd /usr/local && \
-    curl -L -O https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz && \
-    [ "$(sha256sum go${GOLANG_VERSION}.linux-amd64.tar.gz | cut -d' ' -f1)" = "${GOLANG_SHA256}" ] && \
-    tar zxf go${GOLANG_VERSION}.linux-amd64.tar.gz && \
+    curl -L -O https://golang.org/dl/go${GOLANG_VERSION}.linux-${GOLANG_ARCH}.tar.gz && \
+    [ "$(sha256sum go${GOLANG_VERSION}.linux-${GOLANG_ARCH}.tar.gz | cut -d' ' -f1)" = "${GOLANG_SHA256}" ] && \
+    tar zxf go${GOLANG_VERSION}.linux-${GOLANG_ARCH}.tar.gz && \
     ln -s /usr/local/go/bin/go /usr/bin/go && \
     ln -s /usr/local/go/bin/gofmt /usr/bin/gofmt
 
